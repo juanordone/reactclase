@@ -12,11 +12,17 @@ function App() {
 
   return(
     <div className='App'>
+      <div>
       <Header/>
+      <div>
       <Carousel/>
+      </div>
+      <div>
+      <Card />
       <Card/>
+      </div>
       <Footer/>
-      
+      </div>
 
     </div>
    
