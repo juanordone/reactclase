@@ -1,21 +1,23 @@
+import {Link} from "react-router-dom"
+
 export default function Header() {
   return (
     <>
     <nav className="navbar navbar-expand-lg bg-dark px-5 ">
       <div className="container-fluid">
-        <a className="navbar-brand text-light" href="#">
+        <Link className="navbar-brand text-light" to={"/"}>
           Navbar
-        </a>
+        </Link>
         
           <form className="d-flex" role="search">
             <input
               className="form-control me-2"
               type="search"
-              placeholder="Search"
-              aria-label="Search"
+              placeholder="Buscar"
+              aria-label="Buscar"
             />
             <button className="btn btn-outline-light" type="submit">
-              Search
+              Buscar
             </button>
           </form>
         </div>
@@ -23,20 +25,18 @@ export default function Header() {
     </nav>
     <ul className="nav nav-pills nav-fill list-group list-group-horizontal">
     <li className="nav-item list-group-item">
-      <a className="nav-link " aria-current="page" href="#">Active</a>
+      <Link className="nav-link " aria-current="page" to={"/"}>Productos</Link>
     </li>
     <li className="nav-item list-group-item">
-      <a className="nav-link" href="#">Link</a>
+    <Link className="nav-link " aria-current="page" to={"/SobreNosotros"}>Sobre nosotros</Link>
     </li>
     <li className="nav-item list-group-item">
-      <a className="nav-link" href="#">Link</a>
+    <Link className="nav-link " aria-current="page" to={"/Login"}>Cuenta</Link>
     </li>
     <li className="nav-item list-group-item">
-      <a className="nav-link" href="#">Disabled</a>
+      <Link className="nav-link" to={"/Carrito"}>Carrito</Link>
     </li>
-    <li className="nav-item list-group-item">
-      <a className="nav-link" href="#">Disabled</a>
-    </li>
+    
   </ul>
     </>
   );
