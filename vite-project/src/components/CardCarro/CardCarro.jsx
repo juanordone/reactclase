@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function CardCarro() {
   return (
     <>
-      <div className="card mb-3  " style={{ width: "540px" }}>
+      <div className="card mb-3 mt-5 " style={{ width: "540px" }}>
         <div className="row g-0">
           <div className="col-md-4">
             <img

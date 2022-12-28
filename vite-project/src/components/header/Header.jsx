@@ -1,15 +1,14 @@
-import {Link} from "react-router-dom"
-
+import { Link } from "react-router-dom";
 
 export default function Header() {
   return (
     <>
-    <nav className="navbar navbar-expand-lg bg-dark px-5 d-flex  ">
-      <div className="container-fluid">
-        <Link className="navbar-brand text-light fw-bold fs-1" to={"/"}>
-        CARAMAÑOLA BIKE
-        </Link>
-        
+      <nav className="navbar navbar-expand-lg bg-dark px-5 d-flex  ">
+        <div className="container-fluid">
+          <Link className="navbar-brand text-light fw-bold fs-1" to={"/"}>
+            CARAMAÑOLA BIKE
+          </Link>
+
           <form className="d-flex " role="search">
             <input
               className="form-control me-2"
@@ -18,27 +17,36 @@ export default function Header() {
               aria-label="Buscar"
             />
             <button className="btn btn-outline-light" type="submit">
-            <i class="bi bi-search"></i>
+              <i class="bi bi-search"></i>
             </button>
           </form>
+          <Link to={"/carrito"} type="button" class="btn btn-dark position-relative">
+          <i class="bi bi-bag"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+              1
+              <span class="visually-hidden">unread messages</span>
+            </span>
+          </Link>
         </div>
-      
-    </nav>
-    <ul className="nav nav-pills nav-fill list-group list-group-horizontal">
-    <li className="nav-item list-group-item">
-      <Link className="nav-link " aria-current="page" to={"/"}>Productos</Link>
-    </li>
-    <li className="nav-item list-group-item">
-    <Link className="nav-link " aria-current="page" to={"/SobreNosotros"}>Sobre nosotros</Link>
-    </li>
-    <li className="nav-item list-group-item">
-    <Link className="nav-link " aria-current="page" to={"/Login"}>Cuenta</Link>
-    </li>
-    <li className="nav-item list-group-item">
-      <Link className="nav-link" to={"/Carrito"}>Carrito</Link>
-    </li>
-    
-  </ul>
+      </nav>
+      <ul className="nav nav-pills nav-fill list-group list-group-horizontal">
+        <li className="nav-item list-group-item">
+          <Link className="nav-link " aria-current="page" to={"/"}>
+            Productos
+          </Link>
+        </li>
+        <li className="nav-item list-group-item">
+          <Link className="nav-link " aria-current="page" to={"/SobreNosotros"}>
+            Sobre nosotros
+          </Link>
+        </li>
+        <li className="nav-item list-group-item">
+          <Link className="nav-link " aria-current="page" to={"/Login"}>
+            Cuenta
+          </Link>
+        </li>
+       
+      </ul>
     </>
   );
 }
