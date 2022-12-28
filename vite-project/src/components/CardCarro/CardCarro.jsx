@@ -3,12 +3,13 @@ import { Link } from "react-router-dom";
 export default function CardCarro() {
   return (
     <>
-      <div className="card mb-3 mt-5 " style={{ width: "540px" }}>
+    <div className="d-flex justify-content-center">
+      <div className="card mb-3 mt-5 border-0" style={{ width: "540px" }}>
         <div className="row g-0">
           <div className="col-md-4">
             <img
               src="https://www.maillotmag.com/sites/default/files/orbea_orca_omx_fund_euskadi_2.jpg"
-              className="img-fluid rounded-start"
+              className="img-fluid rounded"
               alt="bici"
             />
           </div>
@@ -35,21 +36,27 @@ export default function CardCarro() {
                   className="btn btn-outline-secondary ms-3"
                   type="button"
                 >
-                  <i class="bi bi-trash3"></i>
+                  <i className="bi bi-trash3"></i>
                 </button>
               </div>
             </div>
           </div>
         </div>
       </div>
+      </div>
+     
+      <div>
+      <div className=" d-flex justify-content-center">
 
-      <Link to={"/"} className="btn btn-primary  ">
+      <Link to={"/"} className="btn btn-primary mt-5 mb-5 ms-5">
         Seguir comprando
       </Link>
 
-      <Link to={"/FormasDePago"} className="btn btn-primary">
+      <Link to={"/FormasDePago"} className="btn btn-primary mb-5 mt-5 ms-5">
         Realizar pedido
       </Link>
+      </div>
+      </div>
     </>
   );
 }

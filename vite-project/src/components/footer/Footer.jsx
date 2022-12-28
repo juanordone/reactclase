@@ -53,20 +53,20 @@ export default function Footer() {
                       className="btn btn-primary"
                       id="button-addon2"
                       type="button"
-                    ><i class="bi bi-send-fill"></i>
+                    ><i className="bi bi-send-fill"></i>
                       
                     </button>
                     
                   </div>
-                  <div class="form-check text-light">
+                  <div className="form-check text-light">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Acepto la politica de privacidad
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
+                    Acepto la <a href="#" class="link-primary">politica de privacidad</a>
                   </label>
                 </div>
                 </form>

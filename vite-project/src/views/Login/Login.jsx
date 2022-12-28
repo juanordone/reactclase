@@ -73,14 +73,14 @@ export default function Login() {
              
              
             </div>
-            <div class="form-check text-light mt-3">
+            <div className="form-check text-light mt-3">
                   <input
-                    class="form-check-input"
+                    className="form-check-input"
                     type="checkbox"
                     value=""
                     id="flexCheckDefault"
                   />
-                  <label class="form-check-label" for="flexCheckDefault">
+                  <label className="form-check-label" htmlFor="flexCheckDefault">
                     Acepto la politica de privacidad
                   </label>
                 </div>

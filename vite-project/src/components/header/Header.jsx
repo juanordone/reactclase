@@ -17,14 +17,14 @@ export default function Header() {
               aria-label="Buscar"
             />
             <button className="btn btn-outline-light" type="submit">
-              <i class="bi bi-search"></i>
+              <i className="bi bi-search"></i>
             </button>
           </form>
-          <Link to={"/carrito"} type="button" class="btn btn-dark position-relative">
-          <i class="bi bi-bag"></i>
-            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+          <Link to={"/carrito"} type="button" className="btn btn-dark position-relative">
+          <i className="bi bi-bag"></i>
+            <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
               1
-              <span class="visually-hidden">unread messages</span>
+              <span className="visually-hidden">unread messages</span>
             </span>
           </Link>
         </div>
