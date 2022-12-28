@@ -8,6 +8,7 @@ import Login from "./views/Login/Login"
 import SobreNosotros from './views/SobreNosotros/SobreNosotros'
 import Carrito from "./views/Carrito/Carrito"
 import FormasDePago from "./views/FormasDePago/FormasDePago"
+import Producto from "./views/Producto/Producto"
 
 
 
@@ -24,6 +25,7 @@ import FormasDePago from "./views/FormasDePago/FormasDePago"
           <Route path='SobreNosotros' element={<SobreNosotros/>}/>
           <Route path='Carrito' element={<Carrito/>}/>
           <Route path='FormasDePago' element={<FormasDePago/>}/>
+          <Route path='Producto' element={<Producto/>}/>
           
 
         </Route>

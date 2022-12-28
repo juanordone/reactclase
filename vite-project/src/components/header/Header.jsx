@@ -1,15 +1,16 @@
 import {Link} from "react-router-dom"
 
+
 export default function Header() {
   return (
     <>
-    <nav className="navbar navbar-expand-lg bg-dark px-5 ">
+    <nav className="navbar navbar-expand-lg bg-dark px-5 d-flex  ">
       <div className="container-fluid">
-        <Link className="navbar-brand text-light" to={"/"}>
-          Navbar
+        <Link className="navbar-brand text-light fw-bold fs-1" to={"/"}>
+        CARAMAÑOLA BIKE
         </Link>
         
-          <form className="d-flex" role="search">
+          <form className="d-flex " role="search">
             <input
               className="form-control me-2"
               type="search"
@@ -17,7 +18,7 @@ export default function Header() {
               aria-label="Buscar"
             />
             <button className="btn btn-outline-light" type="submit">
-              Buscar
+            <i class="bi bi-search"></i>
             </button>
           </form>
         </div>

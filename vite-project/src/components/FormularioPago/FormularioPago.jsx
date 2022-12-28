@@ -114,7 +114,7 @@ export default function FormularioPago() {
       </div>
       <div class="col-12">
         <button class="btn btn-primary" type="submit">
-          Submit form
+          Pagar
         </button>
       </div>
     </form>
