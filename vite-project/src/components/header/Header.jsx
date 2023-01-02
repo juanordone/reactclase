@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-dark px-5 d-flex  ">
+      <nav className="navbar navbar-expand-lg bg-dark px-5 d-flex sticky-top  ">
         <div className="container-fluid">
           <Link className="navbar-brand text-light fw-bold fs-1" to={"/"}>
             CARAMAÑOLA BIKE
