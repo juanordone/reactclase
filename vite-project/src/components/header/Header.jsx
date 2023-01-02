@@ -20,11 +20,14 @@ export default function Header() {
               <i className="bi bi-search"></i>
             </button>
           </form>
-          <Link to={"/carrito"} type="button" className="btn btn-dark position-relative">
-          <i className="bi bi-bag"></i>
+          <Link
+            to={"/carrito"}
+            type="button"
+            className="btn btn-dark position-relative"
+          >
+            <i className="bi bi-bag"></i>
             <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
-              1
-              <span className="visually-hidden">unread messages</span>
+              1<span className="visually-hidden">unread messages</span>
             </span>
           </Link>
         </div>
@@ -40,12 +43,18 @@ export default function Header() {
             Sobre nosotros
           </Link>
         </li>
-        <li className="nav-item list-group-item">
-          <Link className="nav-link " aria-current="page" to={"/Login"}>
+
+        <li className="nav-item list-group-item ">
+          <Link
+            className="nav-link  "
+            aria-current="page"
+            to={"/Login"}
+            
+          >
             Cuenta
           </Link>
+          
         </li>
-       
       </ul>
     </>
   );

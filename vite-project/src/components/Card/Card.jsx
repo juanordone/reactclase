@@ -15,7 +15,7 @@ export default function Card() {
             Some quick example text to build on the card title and make up the
             bulk of the card's content.
           </p>
-          <Link to={"/Producto"} className="btn btn-primary">
+          <Link to={"/Producto"} className="btn btn-outline-primary">
             Go somewhere
           </Link>
         </div>

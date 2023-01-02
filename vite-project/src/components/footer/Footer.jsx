@@ -22,16 +22,16 @@ export default function Footer() {
                 <h5 className="text-white mb-4">Quick links</h5>
                 <ul className="list-unstyled text-muted">
                   <li>
-                    <a href="#">Home</a>
+                    <a href="https://www.instagram.com/juam89op/?hl=es" target = "_blank"><i class="fs-3 bi bi-instagram"></i></a>
                   </li>
                   <li>
-                    <a href="#">About</a>
+                    <a href="https://www.facebook.com/juan.ordonez.315080" target = "_blank"><i class="fs-3 bi bi-facebook"></i></a>
                   </li>
                   <li>
-                    <a href="#">Get started</a>
+                    <a href="https://www.linkedin.com/in/juan-ord%C3%B3%C3%B1ez-p%C3%A9rez-8b9455120/" target = "_blank"><i class="fs-3 bi bi-linkedin"></i></a>
                   </li>
                   <li>
-                    <a href="#">FAQ</a>
+                    <a href="https://twitter.com/juam89op" target = "_blank"><i class="fs-3 bi bi-twitter"></i></a>
                   </li>
                 </ul>
               </div>
