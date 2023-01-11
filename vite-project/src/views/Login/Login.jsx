@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function Login() {
   const [user, SetUser] = useState({ email: "", contrasena: "" });
-  function fullLogin(event, user) {
+  function fullLogin(event) {
     event.preventDefault();
     if (
       user.email === "juan.ordonez89@hotmail.es" &&
