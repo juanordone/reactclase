@@ -19,7 +19,7 @@ export default function Footer() {
                 </p>
               </div>
               <div className="col-lg-2 col-md-6">
-                <h5 className="text-white mb-4">Quick links</h5>
+                <h5 className="text-white mb-4">Redes sociales</h5>
                 <ul className="list-unstyled text-muted">
                   <li>
                     <a href="https://www.instagram.com/juam89op/?hl=es" target = "_blank"><i className="fs-3 bi bi-instagram"></i></a>
