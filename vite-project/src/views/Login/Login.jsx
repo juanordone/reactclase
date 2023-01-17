@@ -1,35 +1,56 @@
 import { useState } from "react";
 
 export default function Login() {
-  const [user, SetUser] = useState({ email: "", contrasena: "" });
-  function fullLogin(event) {
-    event.preventDefault();
-    if (
-      user.email === "juan.ordonez89@hotmail.es" &&
-      user.contrasena === "1234"
-    ) {
-      alert("logeado con exito");
+  const [nuevoUsuario, setNuevoUsuario] = useState({
+    email: "",
+    password: "",
+    nombre: "",
+    apellidos: "",
+  });
+
+  function handleInput(e){
+    const nuevoRegistro = {
+      ...nuevoUsuario,
+      [e.target.name]: e.target.value
     }
-    SetUser({
-      ...user,
-      [event.target.name]: event.target.value,
-    });
+    setNuevoUsuario(nuevoRegistro)
   }
+
+  function registro(e){
+    e.preventDefault();
+    fetch("http://localhost:3000/user",{
+      method: "POST",
+      headers: {
+        "content-type": "application/json"
+      },
+      body: JSON.stringify(nuevoUsuario)
+    }).then((response)=> {
+      console.log(response.status);
+      if(response.status === 400){
+        alert('error al recibir el body')
+      } else if(response.status === 200){
+        alert(`usuario ${nuevoUsuario.nombre} registrado correctamente`)
+      } else if(response.status === 409){
+        alert('usuario ya registrado')
+      }
+    })
+  }
+
   return (
     <>
       <div className="container login-container bg-primary text-white mt-5 mb-5  bg-gradient">
         <div className="row">
           <div className="col-md-6 login-form-1 p-5">
             <h3>Iniciar sesión</h3>
-            <form onSubmit={(event) => fullLogin(event, user)}>
+            <form>
               <div className="form-group">
                 <input
                   type="text"
                   name="email"
                   className="form-control mt-5"
                   placeholder="Email"
-                  value={fullLogin.email}
-                  onChange={fullLogin}
+                  
+                  
                 />
               </div>
               <div className="form-group">
@@ -38,8 +59,7 @@ export default function Login() {
                   name="contrasena"
                   className="form-control mt-5"
                   placeholder="Contraseña"
-                  value={fullLogin.contrasena}
-                  onChange={fullLogin}
+                 
                 />
               </div>
               <div className="form-group">
@@ -54,14 +74,18 @@ export default function Login() {
           </div>
 
           <div className="col-md-6 login-form-1 bg-dark bg-gradient p-5">
+          
             <h3>Registro</h3>
-
+            <form onSubmit={registro}>
             <div className="form-group mt-5">
               <input
                 type="text"
                 className="form-control"
+                name="nombre"
                 placeholder="Nombre"
-                value=""
+                value={nuevoUsuario.nombre}
+                
+                onChange={handleInput}
               />
             </div>
 
@@ -70,7 +94,9 @@ export default function Login() {
                 type="text"
                 className="form-control"
                 placeholder="Apellidos"
-                value=""
+                value={nuevoUsuario.apellidos}
+                name="apellidos"
+                onChange={handleInput}
               />
             </div>
 
@@ -79,7 +105,9 @@ export default function Login() {
                 type="text"
                 className="form-control"
                 placeholder="Email"
-                value=""
+                value={nuevoUsuario.email}
+                name="email"
+                onChange={handleInput}
               />
             </div>
             <div className="form-group mt-5">
@@ -87,17 +115,19 @@ export default function Login() {
                 type="password"
                 className="form-control mt-5"
                 placeholder="Contraseña"
-                value=""
+                value={nuevoUsuario.password}
+                name="password"
+                onChange={handleInput}
               />
             </div>
-            <div className="form-group">
+            {/* <div className="form-group">
               <input
                 type="submit"
                 className="btn btn-primary mt-5"
-                value="Registro"
+                
               />
-            </div>
-            <div className="form-check text-light mt-3">
+            </div> */}
+            {/* <div className="form-check text-light mt-3">
               <input
                 className="form-check-input"
                 type="checkbox"
@@ -107,8 +137,10 @@ export default function Login() {
               <label className="form-check-label" htmlFor="flexCheckDefault">
                 Acepto la politica de privacidad
               </label>
-            </div>
+            </div> */}
+            </form>
           </div>
+          
         </div>
       </div>
     </>
