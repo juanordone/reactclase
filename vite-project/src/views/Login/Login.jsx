@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLoginModeContext } from "../../contexts/loginContext";
 
 export default function Login() {
   const [nuevoUsuario, setNuevoUsuario] = useState({
@@ -71,6 +72,8 @@ export default function Login() {
     setNuevoUsuario({ email: "", password: "", nombre: "", apellidos: "" });
   }
 
+  const { toggleLoginMode } = useLoginModeContext();
+
   return (
     <div className="container login-container bg-primary text-white mt-5 mb-5  bg-gradient">
       <div className="row">
@@ -98,7 +101,11 @@ export default function Login() {
               />
             </div>
             <div className="form-group">
-              <button type="submit" className="btn btn-dark mt-5">
+              <button
+                onClick={toggleLoginMode}
+                type="submit"
+                className="btn btn-dark mt-5"
+              >
                 Login
               </button>
               <a href="#" className="btn mt-5">
