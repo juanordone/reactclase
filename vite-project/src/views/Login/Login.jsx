@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 import { useLoginModeContext } from "../../contexts/loginContext";
 
 export default function Login() {
+  const { inicioSesion } = useLoginModeContext();
+ 
   const [nuevoUsuario, setNuevoUsuario] = useState({
     email: "",
     password: "",
@@ -14,6 +16,7 @@ export default function Login() {
     email: "",
     password: "",
   });
+  
 
   function handleLogin(e) {
     const loginUser = {
@@ -22,26 +25,50 @@ export default function Login() {
     };
     setUser(loginUser);
   }
-  const navigate = useNavigate();
-  function inicioSesion(e) {
-    e.preventDefault();
-    fetch("http://localhost:3000/user/login", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(user),
-    }).then((response) => {
-      console.log(response.status);
-      if (response.status === 200) {
-        // alert(`usuario ${user.email} logeado`);
-        navigate("/");
-      } else {
-        alert(`error en el login`);
-      }
-    });
-    setNuevoUsuario({ email: "", password: "" });
-  }
+ 
+  //  function inicioSesion(e) {
+  //   e.preventDefault();
+  //   fetch("http://localhost:3000/user/login", {
+  //     method: "POST",
+  //     headers: {
+  //       "content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(user),
+  //   }).then((response) => {
+  //     console.log(response.status);
+  //     if (response.status === 200) {
+  //       // alert(`usuario ${user.email} logeado`);
+  //       navigate("/");
+  //     } else {
+  //       alert(`error en el login`);
+  //     }
+  //   });
+  //   setNuevoUsuario({ email: "", password: "" });
+  // }
+
+  // async function inicioSesion(e) {
+  //   e.preventDefault();
+  //   const response = await fetch("http://localhost:3000/user/login", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(user),
+  //   });
+
+  //   if (response.status === 200) {
+  //     const token = await response.json();
+  //     setLoggedIn(token.jwt);
+  //     toggleLoginMode(token.jwt, e)
+  //     console.log(token)
+  //     setUser({
+  //       email: "",
+  //       password: "",
+  //     });
+  //     navigate("/");
+  //   } else {
+  //     alert("Email o password incorrectos");
+  //   }
+  // }
+  // console.log(loggedIn);
 
   function handleInput(e) {
     const nuevoRegistro = {
@@ -72,7 +99,9 @@ export default function Login() {
     setNuevoUsuario({ email: "", password: "", nombre: "", apellidos: "" });
   }
 
-  const { toggleLoginMode } = useLoginModeContext();
+  
+
+ 
 
   return (
     <div className="container login-container bg-primary text-white mt-5 mb-5  bg-gradient">
@@ -102,7 +131,7 @@ export default function Login() {
             </div>
             <div className="form-group">
               <button
-                onClick={toggleLoginMode}
+                
                 type="submit"
                 className="btn btn-dark mt-5"
               >
@@ -179,5 +208,10 @@ export default function Login() {
         </div>
       </div>
     </div>
+    
+    
   );
+ 
 }
+
+
