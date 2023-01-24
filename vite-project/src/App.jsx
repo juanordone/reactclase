@@ -1,7 +1,7 @@
-import "./App.css";
+
 
 import { Routes, Route, Outlet, BrowserRouter } from "react-router-dom";
-import { LoginContextProvider } from "./contexts/loginContext";
+import {AuthContextProvider} from "./contexts/AuthContext"
 import Layout from "./components/Layout/Layout";
 import Home from "./views/Home/Home";
 import Login from "./views/Login/Login";
@@ -12,7 +12,7 @@ import Producto from "./views/Producto/Producto";
 
 function App() {
   return (
-    <LoginContextProvider>
+    <AuthContextProvider>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -25,7 +25,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-    </LoginContextProvider>
+    </AuthContextProvider>
   );
 }
 

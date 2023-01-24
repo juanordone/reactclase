@@ -1,9 +1,22 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import {useNavigate} from "react-router-dom"
+import {useAuthContext} from "../../contexts/AuthContext"
 
-import { useLoginModeContext } from "../../contexts/loginContext";
+
+
 
 export default function Login() {
-  const { inicioSesion } = useLoginModeContext();
+  const {login,authorization,} = useAuthContext()
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    if(authorization){
+      navigate("/")
+    }
+
+  },[authorization])
+
+  
  
   const [nuevoUsuario, setNuevoUsuario] = useState({
     email: "",
@@ -19,56 +32,11 @@ export default function Login() {
   
 
   function handleLogin(e) {
-    const loginUser = {
-      ...user,
-      [e.target.name]: e.target.value,
-    };
-    setUser(loginUser);
+    setUser({...user,[e.target.name]: e.target.value})
+    
   }
  
-  //  function inicioSesion(e) {
-  //   e.preventDefault();
-  //   fetch("http://localhost:3000/user/login", {
-  //     method: "POST",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   }).then((response) => {
-  //     console.log(response.status);
-  //     if (response.status === 200) {
-  //       // alert(`usuario ${user.email} logeado`);
-  //       navigate("/");
-  //     } else {
-  //       alert(`error en el login`);
-  //     }
-  //   });
-  //   setNuevoUsuario({ email: "", password: "" });
-  // }
-
-  // async function inicioSesion(e) {
-  //   e.preventDefault();
-  //   const response = await fetch("http://localhost:3000/user/login", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: JSON.stringify(user),
-  //   });
-
-  //   if (response.status === 200) {
-  //     const token = await response.json();
-  //     setLoggedIn(token.jwt);
-  //     toggleLoginMode(token.jwt, e)
-  //     console.log(token)
-  //     setUser({
-  //       email: "",
-  //       password: "",
-  //     });
-  //     navigate("/");
-  //   } else {
-  //     alert("Email o password incorrectos");
-  //   }
-  // }
-  // console.log(loggedIn);
+ 
 
   function handleInput(e) {
     const nuevoRegistro = {
@@ -108,7 +76,7 @@ export default function Login() {
       <div className="row">
         <div className="col-md-6 login-form-1 p-5">
           <h3>Iniciar sesión</h3>
-          <form onSubmit={inicioSesion}>
+          <form onSubmit={(e) => login(e,user)}>
             <div className="form-group">
               <input
                 type="text"

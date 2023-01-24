@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import {useAuthContext} from "../../contexts/AuthContext"
 
 export default function Header() {
+
+  const {logout,authorization} = useAuthContext()
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-dark px-5 d-flex sticky-top  ">
@@ -45,14 +48,24 @@ export default function Header() {
         </li>
 
         <li className="nav-item list-group-item ">
-          <Link
+          {!authorization ? (<Link
             className="nav-link  "
             aria-current="page"
             to={"/Login"}
             
           >
             Cuenta
-          </Link>
+          </Link>) : (<Link
+          onClick={logout}
+            className="nav-link  "
+            aria-current="page"
+            to={"/"}
+            
+          >
+            Logout
+          </Link>)}
+          
+        
           
         </li>
       </ul>
