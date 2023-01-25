@@ -26,9 +26,11 @@ export default function Card() {
           alt="..."
         />
         <div className="card-body">
-          { products.map((product) => (
-            <div >
-              <h5 className="card-title" key={product.id}>{product.nombre}</h5>
+          {products.map((product) => (
+            <div>
+              <h5 className="card-title" key={product.id}>
+                {product.nombre}
+              </h5>
               <p className="card-text">{product.precio}</p>
               <Link to={"/Producto"} className="btn btn-outline-primary">
                 Go somewhere

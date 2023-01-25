@@ -28,30 +28,12 @@ export default function FormularioPago() {
             </div>
             <span className="text-muted">$5</span>
           </li>
-          <li className="list-group-item d-flex justify-content-between bg-light">
-            <div className="text-success">
-              <h6 className="my-0">Código promocional</h6>
-              <small>EXAMPLECODE</small>
-            </div>
-            <span className="text-success">−$5</span>
-          </li>
+
           <li className="list-group-item d-flex justify-content-between">
             <span>Total (USD)</span>
             <strong>$20</strong>
           </li>
         </ul>
-        <form className="card p-2">
-          <div className="input-group">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Código Promo"
-            />
-            <button type="submit" className="btn btn-secondary">
-              Aplicar
-            </button>
-          </div>
-        </form>
       </div>
       <div className="col-md-7 col-lg-8">
         <h4 className="mb-3">Dirección de envio</h4>
@@ -87,24 +69,7 @@ export default function FormularioPago() {
             />
             <div className="invalid-feedback">Se requiere apellido válido.</div>
           </div>
-          <div className="col-12">
-            <label for="username" className="form-label">
-              Nombre de usuario
-            </label>
-            <div className="input-group has-validation">
-              <span className="input-group-text">@</span>
-              <input
-                type="text"
-                className="form-control"
-                id="username"
-                placeholder="Nombre de usuario"
-                required=""
-              />
-              <div className="invalid-feedback">
-                Tu nombre de usuario es requerido.
-              </div>
-            </div>
-          </div>
+
           <div className="col-12">
             <label for="email" className="form-label">
               Email <span className="text-muted">(Opcional)</span>
