@@ -3,12 +3,12 @@ import { initialValues } from "./utils/form";
 import { BasicFormSchema } from "./BasicFormSchema";
 
 export default function FormularioPago() {
-  const onSubmit = async (values,actions) => {
-    console.log(values)
-    console.log(actions)
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+  const onSubmit = async (values, actions) => {
+    console.log("values");
+    console.log(actions);
+
     actions.resetForm();
-  }
+  };
   const {
     values,
     errors,
@@ -64,7 +64,6 @@ export default function FormularioPago() {
           className="needs-validation"
           onSubmit={handleSubmit}
           autoComplete="off"
-          noValidate
         >
           <div className="row g-3">
             <div className="col-sm-6">
@@ -75,13 +74,23 @@ export default function FormularioPago() {
                 value={values.nombre}
                 onChange={handleChange}
                 type="text"
-                className= "form-control"
+                onBlur={handleBlur}
+                className={
+                  errors.nombre && touched.nombre
+                    ? "form-control is-invalid"
+                    : "form-control "
+                }
                 id="nombre"
                 placeholder="Nombre"
-                required
               />
-              
-              <div className={errors.nombre && touched.nombre ? "invalid-feedback" : ""}>
+
+              <div
+                className={
+                  errors.nombre && touched.nombre
+                    ? "invalid-feedback is-invalid"
+                    : ""
+                }
+              >
                 {errors.nombre}
               </div>
             </div>
@@ -99,8 +108,12 @@ export default function FormularioPago() {
                 onBlur={handleBlur}
                 required=""
               />
-              <div className="invalid-feedback">
-                Se requiere apellido válido.
+              <div
+                className={
+                  errors.apellido && touched.apellido ? "invalid-feedback" : ""
+                }
+              >
+                {errors.apellido}
               </div>
             </div>
 
@@ -116,9 +129,12 @@ export default function FormularioPago() {
                 placeholder="tu@ejemplo.com"
                 value={values.email}
               />
-              <div className="invalid-feedback">
-                Ingresa una dirección de correo electrónico válida para
-                actualizaciones de envío.
+              <div
+                className={
+                  errors.email && touched.email ? "invalid-feedback" : ""
+                }
+              >
+                {errors.email}
               </div>
             </div>
             <div className="col-12">
@@ -134,9 +150,14 @@ export default function FormularioPago() {
                 required=""
                 value={values.direccion}
               />
-              <div className="invalid-feedback">
-                Por favor introduce tu direccion de envio. Please enter your
-                shipping address.
+              <div
+                className={
+                  errors.direccion && touched.direccion
+                    ? "invalid-feedback"
+                    : ""
+                }
+              >
+                {errors.direccion}
               </div>
             </div>
             <div className="col-12">
@@ -157,15 +178,19 @@ export default function FormularioPago() {
                 País
               </label>
               <select
-                className="form-select"
+                className={
+                  errors.pais && touched.pais
+                    ? "form-control is-invalid"
+                    : " form-control"
+                }
                 id="pais"
                 onChange={handleChange}
-                required=""
+                onBlur={handleBlur}
               >
-                <option value={values.pais}>Elige...</option>
-                <option>España</option>
-                <option>Portugal</option>
-                <option>Francia</option>
+                <option value="">Elige...</option>
+                <option value="España">España</option>
+                <option value="Portugal">Portugal</option>
+                <option value="Francia">Francia</option>
               </select>
               <div className="invalid-feedback">Selecciona un país válido.</div>
             </div>
@@ -183,7 +208,11 @@ export default function FormularioPago() {
                 required=""
                 value={values.cp}
               />
-              <div className="invalid-feedback">Código postal requerido.</div>
+              <div
+                className={errors.cp && touched.cp ? "invalid-feedback" : ""}
+              >
+                {errors.cp}
+              </div>
             </div>
           </div>
           <hr className="my-4" />
@@ -216,8 +245,6 @@ export default function FormularioPago() {
                 name="paymentMethod"
                 type="radio"
                 className="form-check-input"
-                
-                
               />
               <label className="form-check-label" htmlFor="credit">
                 Tarjeta de crédito
@@ -229,7 +256,6 @@ export default function FormularioPago() {
                 name="paymentMethod"
                 type="radio"
                 className="form-check-input"
-                
               />
               <label className="form-check-label" htmlFor="debit">
                 Tarjeta de débito
@@ -241,7 +267,6 @@ export default function FormularioPago() {
                 name="paymentMethod"
                 type="radio"
                 className="form-check-input"
-                
               />
               <label className="form-check-label" htmlFor="paypal">
                 PayPal
@@ -265,8 +290,14 @@ export default function FormularioPago() {
               <small className="text-muted">
                 Nombre completo como se muestra en la tarjeta
               </small>
-              <div className="invalid-feedback">
-                Se requiere el nombre en la tarjeta
+              <div
+                className={
+                  errors.nombreTarjeta && touched.nombreTarjeta
+                    ? "invalid-feedback"
+                    : ""
+                }
+              >
+                {errors.nombreTarjeta}
               </div>
             </div>
             <div className="col-md-6">
@@ -282,8 +313,14 @@ export default function FormularioPago() {
                 onChange={handleChange}
                 value={values.numeroTarjeta}
               />
-              <div className="invalid-feedback">
-                Se requiere número de tarjeta de crédito
+              <div
+                className={
+                  errors.numeroTarjeta && touched.numeroTarjeta
+                    ? "invalid-feedback"
+                    : ""
+                }
+              >
+                {errors.numeroTarjeta}
               </div>
             </div>
             <div className="col-md-3">
@@ -299,8 +336,14 @@ export default function FormularioPago() {
                 onChange={handleChange}
                 value={values.vencimiento}
               />
-              <div className="invalid-feedback">
-                Fecha de vencimiento requerida
+              <div
+                className={
+                  errors.vencimiento && touched.vencimiento
+                    ? "invalid-feedback"
+                    : ""
+                }
+              >
+                {errors.vencimiento}
               </div>
             </div>
             <div className="col-md-3">
@@ -316,16 +359,23 @@ export default function FormularioPago() {
                 onChange={handleChange}
                 value={values.CVV}
               />
-              <div className="invalid-feedback">
-                Código de seguridad requerido
+              <div
+                className={errors.CVV && touched.CVV ? "invalid-feedback" : ""}
+              >
+                {errors.CVV}
               </div>
             </div>
           </div>
           <hr className="my-4" />
-          <button className="w-100 btn btn-primary btn-lg" disabled={isSubmitting} type="submit">
+          <button
+            className="w-100 btn btn-primary btn-lg"
+            disabled={isSubmitting}
+            type="submit"
+          >
             PAGAR
           </button>
         </form>
+        <pre>{JSON.stringify({ values, errors }, null, 1)}</pre>
       </div>
     </div>
   );

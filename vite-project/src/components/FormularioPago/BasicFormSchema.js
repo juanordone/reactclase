@@ -1,7 +1,10 @@
 import * as yup from "yup";
 
 export const BasicFormSchema = yup.object().shape({
-  nombre: yup.string().required("REQUERIDO").min(3,"el nombre no puede tener menos de 3 caracteres"),
+  nombre: yup
+    .string()
+    .required("REQUERIDO")
+    .min(3, "el nombre no puede tener menos de 3 caracteres"),
   apellido: yup.string().min(3).required("REQUERIDO"),
   email: yup
     .string()
@@ -13,7 +16,7 @@ export const BasicFormSchema = yup.object().shape({
     .string()
     .oneOf(["España", "Portugal", "Francia"], "Pais no valido")
     .required("REQUERIDO"),
-  cp: yup.number().max(5).required("REQUERIDO"),
+  cp: yup.number().required("REQUERIDO"),
   nombreTarjeta: yup.string().required("REQUERIDO").min(3),
   numeroTarjeta: yup.number().required("REQUERIDO"),
   CVV: yup.number().max(3).required("REQUERIDO"),
