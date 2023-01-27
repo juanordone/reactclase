@@ -19,5 +19,6 @@ export const BasicFormSchema = yup.object().shape({
   cp: yup.number().required("REQUERIDO"),
   nombreTarjeta: yup.string().required("REQUERIDO").min(3),
   numeroTarjeta: yup.number().required("REQUERIDO"),
+  vencimiento: yup.number().required("REQUERIDO"),
   CVV: yup.number().max(3).required("REQUERIDO"),
 });

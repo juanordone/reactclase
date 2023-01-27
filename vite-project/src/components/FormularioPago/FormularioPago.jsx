@@ -100,7 +100,11 @@ export default function FormularioPago() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className={
+                  errors.apellido && touched.apellido
+                    ? "form-control is-invalid"
+                    : "form-control "
+                }
                 id="apellido"
                 placeholder="Introduce Apellido"
                 value={values.apellido}
@@ -110,7 +114,9 @@ export default function FormularioPago() {
               />
               <div
                 className={
-                  errors.apellido && touched.apellido ? "invalid-feedback" : ""
+                  errors.apellido && touched.apellido
+                    ? "invalid-feedback is-invalid"
+                    : ""
                 }
               >
                 {errors.apellido}
@@ -123,15 +129,22 @@ export default function FormularioPago() {
               </label>
               <input
                 type="email"
+                onBlur={handleBlur}
                 onChange={handleChange}
-                className="form-control"
+                 className={
+                  errors.email && touched.email
+                    ? "form-control is-invalid"
+                    : "form-control "
+                }
                 id="email"
                 placeholder="tu@ejemplo.com"
                 value={values.email}
               />
               <div
                 className={
-                  errors.email && touched.email ? "invalid-feedback" : ""
+                  errors.email && touched.email
+                    ? "invalid-feedback is-invalid"
+                    : ""
                 }
               >
                 {errors.email}
@@ -143,18 +156,23 @@ export default function FormularioPago() {
               </label>
               <input
                 type="text"
+                onBlur={handleBlur}
                 onChange={handleChange}
-                className="form-control"
+                 className={
+                  errors.direccion && touched.direccion
+                    ? "form-control is-invalid"
+                    : "form-control "
+                }
                 id="direccion"
                 placeholder="C/, AVD. nº..."
-                required=""
+                required
                 value={values.direccion}
               />
               <div
                 className={
                   errors.direccion && touched.direccion
-                    ? "invalid-feedback"
-                    : ""
+                    ? "invalid-feedback is-invalid"
+                    : " "
                 }
               >
                 {errors.direccion}
@@ -201,15 +219,20 @@ export default function FormularioPago() {
               </label>
               <input
                 onChange={handleChange}
+                onBlur={handleBlur}
                 type="number"
-                className="form-control"
+                 className={
+                  errors.cp && touched.cp
+                    ? "form-control is-invalid"
+                    : "form-control "
+                }
                 id="cp"
                 placeholder="CP"
-                required=""
+                required
                 value={values.cp}
               />
               <div
-                className={errors.cp && touched.cp ? "invalid-feedback" : ""}
+                className={errors.cp && touched.cp ? "invalid-feedback is-invalid" : " "}
               >
                 {errors.cp}
               </div>
@@ -280,10 +303,15 @@ export default function FormularioPago() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                onBlur={handleBlur}
+                className={
+                  errors.nombreTarjeta && touched.nombreTarjeta
+                    ? "form-control is-invalid"
+                    : "form-control "
+                }
                 id="nombreTarjeta"
                 placeholder="Nombre y Apellidos"
-                required=""
+                required
                 onChange={handleChange}
                 value={values.nombreTarjeta}
               />
@@ -293,8 +321,8 @@ export default function FormularioPago() {
               <div
                 className={
                   errors.nombreTarjeta && touched.nombreTarjeta
-                    ? "invalid-feedback"
-                    : ""
+                    ? "invalid-feedback is-invalid"
+                    : " "
                 }
               >
                 {errors.nombreTarjeta}
@@ -306,17 +334,22 @@ export default function FormularioPago() {
               </label>
               <input
                 type="number"
-                className="form-control"
+                className={
+                  errors.numeroTarjeta && touched.numeroTarjeta
+                    ? "form-control is-invalid"
+                    : "form-control "
+                }
                 id="numeroTarjeta"
                 placeholder="xxxx-xxxx-xxxx-xxxx"
-                required=""
+                required
                 onChange={handleChange}
+                onBlur={handleBlur}
                 value={values.numeroTarjeta}
               />
               <div
                 className={
                   errors.numeroTarjeta && touched.numeroTarjeta
-                    ? "invalid-feedback"
+                    ? "invalid-feedback is-invalid"
                     : ""
                 }
               >
@@ -329,18 +362,23 @@ export default function FormularioPago() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className={
+                  errors.vencimiento && touched.vencimiento
+                    ? "form-control is-invalid"
+                    : "form-control "
+                }
                 id="vencimiento"
                 placeholder="Caduca en..."
-                required=""
+                required
                 onChange={handleChange}
+                onBlur={handleBlur}
                 value={values.vencimiento}
               />
               <div
                 className={
                   errors.vencimiento && touched.vencimiento
-                    ? "invalid-feedback"
-                    : ""
+                    ? "invalid-feedback is-invalid"
+                    : " "
                 }
               >
                 {errors.vencimiento}
@@ -352,15 +390,20 @@ export default function FormularioPago() {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className={
+                  errors.CVV && touched.CVV
+                    ? "form-control is-invalid"
+                    : "form-control "
+                }
                 id="CVV"
                 placeholder="***"
                 required=""
                 onChange={handleChange}
+                onBlur={handleBlur}
                 value={values.CVV}
               />
               <div
-                className={errors.CVV && touched.CVV ? "invalid-feedback" : ""}
+                className={errors.CVV && touched.CVV ? "invalid-feedback is-invalid" : ""}
               >
                 {errors.CVV}
               </div>
