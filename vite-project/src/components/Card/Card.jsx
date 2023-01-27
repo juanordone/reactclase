@@ -19,7 +19,7 @@ export default function Card() {
 
   return (
     <>
-      <div className="d-flex">
+      <div className="d-flex flex-wrap  ">
         {products.map((product) => (
           <div
             className="card mb-5 mt-5 ms-5 "
