@@ -9,6 +9,7 @@ export default function CardProducto() {
           />
         
         </div>
+        
         <div className="flex-grow-1 ms-3">
         <p className="fs-1 fw-bold text-center">Orbea orca omx</p>
         <p className="fs-3 text-center"> Es estética, elegante, económica, rápida y única. La OMX ofrece el mejor equilibrio que encontrarás en el mercado.</p>

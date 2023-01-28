@@ -5,7 +5,7 @@ export default function Producto(){
     
     return(
         <>
-        <CardProducto/>
+        <CardProducto />
         </>
         
     )
