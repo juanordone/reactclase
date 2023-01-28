@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 
+
 export default function Card(product) {
+
+
   return (
     <>
       <div >
@@ -16,7 +19,7 @@ export default function Card(product) {
               <p className="card-text">{product.precio}
                 <i className="bi bi-currency-euro"></i>
               </p>
-              <Link to={"/Producto"} className="btn btn-primary btn-lg">
+              <Link  to={"/Producto"} className="btn btn-primary btn-lg">
                 <i className="bi bi-plus-circle"></i> Información
               </Link>
             </div>
