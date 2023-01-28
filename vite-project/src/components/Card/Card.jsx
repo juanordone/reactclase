@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Card(product) {
   return (
     <>
-      <div className="d-flex">
+      <div >
         <div className="card mb-5 mt-5 ms-5 " style={{ width: "18rem" }}>
           <img
             src="https://www.maillotmag.com/sites/default/files/orbea_orca_omx_fund_euskadi_2.jpg"
@@ -22,7 +22,8 @@ export default function Card(product) {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      
     </>
   );
 }

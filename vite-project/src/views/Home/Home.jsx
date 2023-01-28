@@ -21,8 +21,10 @@ export default function Home(){
     return(
         <>
         <Carousel/>
+        <div className="d-flex flex-wrap">
         {products.map((product) => ( 
-        <Card key={product.id} nombre={product.nombre} precio={product.precio}/>))}
+        <Card  key={product.id} nombre={product.nombre} precio={product.precio}/>))}
+        </div>
         <Opinions/>
         </>
     )
