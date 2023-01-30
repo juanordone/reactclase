@@ -9,6 +9,7 @@ import SobreNosotros from "./views/SobreNosotros/SobreNosotros";
 import Carrito from "./views/Carrito/Carrito";
 import FormasDePago from "./views/FormasDePago/FormasDePago";
 import Producto from "./views/Producto/Producto";
+import Buscador from "./views/Buscador/Buscador";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="Carrito" element={<Carrito />} />
             <Route path="FormasDePago" element={<FormasDePago />} />
             <Route path="Producto" element={<Producto />} />
+            <Route path="productName/${searchValue}" element={<Buscador/>}/>
           </Route>
         </Routes>
       </BrowserRouter>

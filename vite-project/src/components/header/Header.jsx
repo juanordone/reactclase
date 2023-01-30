@@ -7,11 +7,13 @@ export default function Header() {
   const [results, setResults] = useState([]);
   const handleSearch = async () => {
     const response = await fetch(
-      `http://localhost:3000/product/getproduct/${searchValue}`
+      `http://localhost:3000/product/productName/${searchValue}`,
+      
     );
     const data = await response.json();
     setResults(data);
     console.log(data);
+    
   };
 
   const { logout, authorization } = useAuthContext();
@@ -33,7 +35,7 @@ export default function Header() {
               onChange={(e) => setSearchValue(e.target.value)}
             />
             <Link
-              to={"/Producto"}
+              to={"/productName/${searchValue}"}
               onClick={handleSearch}
               className="btn btn-outline-light"
               type="submit"
