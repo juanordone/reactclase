@@ -1,21 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuthContext } from "../../contexts/AuthContext";
-import { useState } from "react";
 
 export default function Header() {
-  const [searchValue, setSearchValue] = useState("");
-  const [results, setResults] = useState([]);
-  const handleSearch = async () => {
-    const response = await fetch(
-      `http://localhost:3000/product/productName/${searchValue}`,
-      
-    );
-    const data = await response.json();
-    setResults(data);
-    console.log(data);
-    
-  };
-
   const { logout, authorization } = useAuthContext();
   return (
     <>
@@ -25,24 +11,6 @@ export default function Header() {
             CARAMAÑOLA BIKE
           </Link>
 
-          <form className="d-flex " role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Buscar"
-              aria-label="Buscar"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-            <Link
-              to={"/productName/${searchValue}"}
-              onClick={handleSearch}
-              className="btn btn-outline-light"
-              type="submit"
-            >
-              <i className="bi bi-search"></i>
-            </Link>
-          </form>
           <Link
             to={"/carrito"}
             type="button"
