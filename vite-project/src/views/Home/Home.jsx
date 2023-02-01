@@ -48,7 +48,7 @@ export default function Home() {
         itemToSearch={itemToSearch}
         setItemToSearch={setItemToSearch}
       />
-      <p>{error}</p>
+      <p className="text-uppercase fs-1 fw-semibold text-center text-primary">{error}</p>
       <div className="d-flex flex-wrap">
         {products.map((product) => (
           <Card
