@@ -1,7 +1,5 @@
-
-
 import { Routes, Route, Outlet, BrowserRouter } from "react-router-dom";
-import {AuthContextProvider} from "./contexts/AuthContext"
+import { AuthContextProvider } from "./contexts/AuthContext";
 import Layout from "./components/Layout/Layout";
 import Home from "./views/Home/Home";
 import Login from "./views/Login/Login";
@@ -9,7 +7,6 @@ import SobreNosotros from "./views/SobreNosotros/SobreNosotros";
 import Carrito from "./views/Carrito/Carrito";
 import FormasDePago from "./views/FormasDePago/FormasDePago";
 import Producto from "./views/Producto/Producto";
-import Buscador from "./views/Buscador/Buscador";
 
 function App() {
   return (
@@ -22,8 +19,7 @@ function App() {
             <Route path="SobreNosotros" element={<SobreNosotros />} />
             <Route path="Carrito" element={<Carrito />} />
             <Route path="FormasDePago" element={<FormasDePago />} />
-            <Route path="Producto" element={<Producto />} />
-            
+            <Route path="Product/:id" element={<Producto />} />
           </Route>
         </Routes>
       </BrowserRouter>
